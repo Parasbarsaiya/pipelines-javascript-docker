@@ -19,3 +19,8 @@ steps:
      repository: $(imageName)
      command: build
      Dockerfile: app/Dockerfile
+
+  - task: Docker@2
+    inputs:
+     command: 'buildAndPush'
+     Dockerfile: '**/Dockerfile'

@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 variables:
    imageName: 'pipelines-javascript-docker'
@@ -17,10 +17,19 @@ steps:
     displayName: Build an image
     inputs:
      repository: $(imageName)
-     command: build
+     command: build 
      Dockerfile: app/Dockerfile
 
   - task: Docker@2
     inputs:
      command: 'buildAndPush'
      Dockerfile: '**/Dockerfile'
+     addBaseImageData: 
+     addPipelineData: 
+     arguments: 
+
+  - task: DockerCompose@0
+    inputs:
+     containerregistrytype: 'Container Registry'
+     dockerComposeFile: '**/docker-compose.yml'
+     action: 'Push services'

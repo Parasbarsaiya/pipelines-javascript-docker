@@ -27,9 +27,3 @@ steps:
      addBaseImageData: 
      addPipelineData: 
      arguments: 
-
-  - task: DockerCompose@0
-    inputs:
-     containerregistrytype: 'Container Registry'
-     dockerComposeFile: '**/docker-compose.yml'
-     action: 'Push services'

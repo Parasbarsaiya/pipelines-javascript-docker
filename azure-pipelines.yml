@@ -22,8 +22,5 @@ steps:
 
   - task: Docker@2
     inputs:
-     command: 'buildAndPush'
-     Dockerfile: '**/Dockerfile'
-     addBaseImageData: 
-     addPipelineData: 
-     arguments: 
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
